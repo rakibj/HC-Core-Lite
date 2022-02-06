@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CommonAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 33
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 70e47d9e7efb3894ba6dbd169b41fd24, type: 3}
+    totalSpriteSurfaceArea: 2135872
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d4744ad0222e57340902c40440ba8a26, type: 3}
+  - {fileID: 21300000, guid: 46cfa591f965046449a664dbe6f8ad08, type: 3}
+  - {fileID: 21300000, guid: c1b601a198ba6f846aba2ef941a213d3, type: 3}
+  - {fileID: 21300000, guid: 2cf5c6a1f86dcd040b1dc49f51a5e4cb, type: 3}
+  - {fileID: 21300000, guid: 3fb11cd2e9d96d647a77c71e471761a2, type: 3}
+  - {fileID: 21300000, guid: f78df2f2ecb2aa147a7043d3915b0a10, type: 3}
+  - {fileID: 21300000, guid: c0645f0496f23924e93ec05cec5347f8, type: 3}
+  - {fileID: 21300000, guid: 2d56a705993775b458e1265e54f68cc8, type: 3}
+  - {fileID: 21300000, guid: 787ad4a8b8ef76c4fb5f43279ff994f5, type: 3}
+  - {fileID: 21300000, guid: f540a1d8fb07248899d3035fac41b71b, type: 3}
+  - {fileID: 21300000, guid: 25973d098150eb847bfa802d2bdc6cbf, type: 3}
+  - {fileID: 21300000, guid: 9b94915a9db59f944aecb5b4aed14e99, type: 3}
+  - {fileID: 21300000, guid: 749d07ca3e56dc448b9200a810b2b6e8, type: 3}
+  - {fileID: 21300000, guid: 2f1976da23ad2449aae0b88a93cc5371, type: 3}
+  - {fileID: 21300000, guid: ff3a024b99381ee44b2696f36181b37c, type: 3}
+  - {fileID: 21300000, guid: eeeb0fbbd92b29f49869d53fec313fb2, type: 3}
+  - {fileID: 21300000, guid: 8810254e6049eed4a94da534d162496d, type: 3}
+  - {fileID: 21300000, guid: efb74ccead8bd20499ce050f9fd94e52, type: 3}
+  - {fileID: 21300000, guid: cecedc6f10c14664ab35992c2d33ba4b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Button 09
+  - Button 04
+  - Loading_back
+  - tap
+  - Glow
+  - You win BG
+  - Skull
+  - panel
+  - Background
+  - Tick
+  - Loading_bar_FG
+  - RoundedSquareFull@256px
+  - settings buttons
+  - ArrowBack
+  - Loading_bar_BG
+  - Box_white
+  - Button 08
+  - Money
+  - Loading_Fill
+  m_RenderDataMap: {}
+  m_Tag: CommonAtlas
+  m_IsVariant: 0

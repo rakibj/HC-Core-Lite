@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a326ebfeb096034bbc1122ea17ce50d, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  moduleSettings:
+    enableAnalytics: 1
+  visualSettings:
+    loadUI: 1
+    showLoadingUI: 0
+    showWinUIAfter: 1
+    showLoseUIAfter: 0
+    showCurrencyUiInGame: 1
+    showPopup: 1
+    showCurrencyPopup: 1
+    currencyPopupEase: 12
+    currencyMoveTime: 1
+    showMessage: 1
+    showGestures: 0
