@@ -1,0 +1,13 @@
+{
+  "name": "com.rakib.hccorelite",
+  "version": "1.0.0",
+  "displayName": "HC Core Lite",
+  "description": "Hyper casual core loop framework to speed up development time",
+  "documentationUrl": "https://docs.google.com/document/d/1tOwTegkrR-UjrF-eM-9aVtk7xxk4mDLz8Knck1R5WkY/edit",
+  "author": 
+  { 
+    "name" : "Rakib Jahan",
+    "email" : "rakibj56@gmail.com",
+    "url" : "https://www.linkedin.com/in/rakibjahan/"
+  }
+}
