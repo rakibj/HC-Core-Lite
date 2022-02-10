@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,13 +15,13 @@ namespace Rakib
         [SerializeField] private UIView view;
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private Button winButton;
-        private IFinalScoreUI[] _finalScoreUI;
+        private IWinUI[] _winUIs;
         private int _scoreWithoutMultiplier;
         private int _scoreMultiplier;
 
         private void Start()
         {
-            _finalScoreUI = GetComponentsInChildren<IFinalScoreUI>();
+            _winUIs = GetComponentsInChildren<IWinUI>();
         }
 
         private void OnValidate()
@@ -56,11 +57,14 @@ namespace Rakib
         {
             levelText.text = "LEVEL " + (_storageManager.CurrentLevel) + " COMPLETE";
 
-            foreach (var finalScoreUI in _finalScoreUI)
-                finalScoreUI?.Prepare(_storageManager.CurrentEntity, _storageManager.CurrentScore);
+            foreach (var winUI in _winUIs)
+                winUI?.Prepare();
             
             view.Show();
-            _finalScoreUI[0].Show();
+            foreach (var winUI in _winUIs)
+            {
+                winUI.Show();
+            }
         }
         
         public void WinButtonClick()

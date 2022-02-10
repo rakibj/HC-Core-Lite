@@ -6,15 +6,10 @@ using Random = UnityEngine.Random;
 
 namespace Rakib
 {
-    public interface IFinalScoreUI
-    {
-        void Prepare(int entityScore, int currentScore);
-        void Show(Action onComplete = null);
-    }
-
-    public class FinalScoreUI : MonoBehaviour, IFinalScoreUI
+    public class FinalScoreUI : MonoBehaviour, IWinUI
     {
         [Inject] private UIUtils _utils;
+        [Inject] private StorageManager _storageManager;
         [SerializeField] private TMP_Text entityText;
         [SerializeField] private TMP_Text scoreText;
         
@@ -44,12 +39,12 @@ namespace Rakib
 
         private int _currentScore;
 
-        public void Prepare(int entityScore, int currentScore)
+        public void Prepare()
         {
             EntityScore = 0;
             CurrentScore = 0;
-            _finalEntityScore = entityScore;
-            _finalCurrentScore = currentScore;
+            _finalEntityScore = _storageManager.CurrentEntity;
+            _finalCurrentScore = _storageManager.CurrentScore;
             //transform.localScale = Vector3.zero;
         }
         
