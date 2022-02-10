@@ -2,8 +2,7 @@
     "name": "RakibEditorAssembly",
     "rootNamespace": "",
     "references": [
-        "GUID:3432bd5630c801d4c86ab8857054edfc",
-        "GUID:0f24193e3bcdee5408e2ecd21c88c406"
+        "GUID:3432bd5630c801d4c86ab8857054edfc"
     ],
     "includePlatforms": [
         "Editor"

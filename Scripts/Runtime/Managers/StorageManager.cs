@@ -11,20 +11,7 @@ namespace Rakib
         [Inject] private SignalBus _signalBus;
         private const string LEVEL_KEY = "LEVELKEY";
         private const string HIGHSCORE_KEY = "HIGHSCOREKEY";
-        private const string GAMEDATA_KEY = "GAMEDATAKEY";
         private const string CURRENCY_KEY = "CURRENCYKEY";
-        public bool GameDataAvailable => PlayerPrefs.HasKey(GAMEDATA_KEY);
-
-        public void SaveGameData(string jsonString)
-        {
-            PlayerPrefs.SetString(GAMEDATA_KEY, jsonString);
-                
-        }
-        public string LoadGameData()
-        {
-            if (!PlayerPrefs.HasKey(GAMEDATA_KEY)) return null;
-            return PlayerPrefs.GetString(GAMEDATA_KEY);
-        }
         
         public int CurrentLevel
         {
@@ -45,7 +32,7 @@ namespace Rakib
             }
         }
         
-        private int _currentEntity;
+        private int _currentEntity = 0;
         public int CurrentEntity
         {
             get => _currentEntity;
@@ -56,7 +43,7 @@ namespace Rakib
                 _signalBus.Fire(new EntityUpdateSignal());
             }
         }
-        private int _totalEntities;
+        private int _totalEntities = 99;
         public int TotalEntities
         {
             get => _totalEntities;

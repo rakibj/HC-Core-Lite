@@ -15,7 +15,6 @@ namespace Rakib
         public override void InstallBindings()
         {
             var storageManager = new StorageManager();
-            var hapticsManager = new HapticsManager();
             
             SignalBusInstaller.Install(Container);
             
@@ -24,10 +23,7 @@ namespace Rakib
             Container.Bind<LevelLoader>().FromComponentInHierarchy().AsSingle();
             Container.BindInstance(storageManager).AsSingle();
             Container.QueueForInject(storageManager);
-            Container.BindInstance(hapticsManager).AsSingle();
-            Container.QueueForInject(hapticsManager);
             Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
-            //Container.Bind<HapticManager>().FromInstance(new HapticManager(true)); // boolean to determine default value whether haptics are enabled for player or not
             
             //Signals
             Container.DeclareSignal<LevelLoadSignal>();

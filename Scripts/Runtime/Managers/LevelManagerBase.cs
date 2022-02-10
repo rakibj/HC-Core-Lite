@@ -130,6 +130,15 @@ namespace Rakib
             SignalBus.Fire(new ProgressUpdateSignal() { Progress = increment});
         }
 
+        public void SetEntities(int entitiesCount = 10)
+        {
+            _storageManager.TotalEntities = entitiesCount;
+        }
+        public void AddEntity()
+        {
+            _storageManager.CurrentEntity++;
+        }
+
     }
     
     public enum GameState

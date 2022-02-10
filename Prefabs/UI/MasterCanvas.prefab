@@ -1702,8 +1702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 206, y: 0.000024319}
-  m_SizeDelta: {x: 159.90314, y: 72.70778}
+  m_AnchoredPosition: {x: 207.31767, y: 0.000024319}
+  m_SizeDelta: {x: 120.8294, y: 72.7078}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8151400647970811686
 CanvasRenderer:
@@ -1735,8 +1735,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: abfdce755d956aa4780802603e3a74d7, type: 2}
-  m_sharedMaterial: {fileID: 2737997560738834349, guid: abfdce755d956aa4780802603e3a74d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4c4b7e153ed34639b17d3000ece2ed9, type: 2}
+  m_sharedMaterial: {fileID: -4918373443893110478, guid: f4c4b7e153ed34639b17d3000ece2ed9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1760,10 +1760,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62
-  m_fontSizeBase: 64.9
+  m_fontSize: 39.2
+  m_fontSizeBase: 39.2
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 4
   m_fontSizeMax: 100
   m_fontStyle: 1
@@ -2082,6 +2082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e89c7cbe3b2ef74497543ee65e032fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  appearDelay: 0.5
   view: {fileID: 867114495841678218}
   levelText: {fileID: 8151400648921350677}
   winButton: {fileID: 8151400648676184045}
@@ -2795,7 +2796,7 @@ MonoBehaviour:
   progressor: {fileID: 8151400649705735741}
   gameView: {fileID: 6627085840600112807}
   scoreText: {fileID: 8151400649848725387}
-  displayEntities: 0
+  displayEntities: 1
   entityPnl: {fileID: 8151400649861241607}
   entityImg: {fileID: 8151400649821698811}
   entityText: {fileID: 8151400647970811685}
@@ -4286,7 +4287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088f1ef39fc8c7f41bafe7816ff71b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losePnl: {fileID: 8151400649204777650}
+  appearDelay: 0.5
   view: {fileID: 2860265833891686990}
   levelCompleteText: {fileID: 8151400648432022224}
   loadNextButton: {fileID: 8151400648828980600}
@@ -5086,8 +5087,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 56de57cba6330854a9d2ac706896393a, type: 2}
-  m_sharedMaterial: {fileID: 5068407258069390272, guid: 56de57cba6330854a9d2ac706896393a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5111,7 +5112,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 91.95
+  m_fontSize: 96.45
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
