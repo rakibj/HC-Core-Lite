@@ -1,15 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Rakib
 {
     public class LoseUI : MonoBehaviour
     {
-        [Inject] private SignalBus _signalBus;
-        [Inject] private GeneralSettings _generalSettings;
-        [Inject] private StorageManager _storageManager;
         [SerializeField] private float appearDelay = 0.5f;
         [SerializeField] private UIView view;
         [SerializeField] private TMP_Text levelCompleteText;
@@ -21,36 +17,30 @@ namespace Rakib
             loadNextButton = GetComponentInChildren<Button>();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             loadNextButton.onClick.AddListener(LoseButtonClick);
-            _signalBus.Subscribe<LevelFailSignal>(ShowViewAfter);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             loadNextButton.onClick.RemoveListener(LoseButtonClick);
-            _signalBus.Unsubscribe<LevelFailSignal>(ShowViewAfter);
         }
 
-        public void ShowViewAfter()
+        public virtual void ShowViewAfter()
         {
-            if (_generalSettings.levelSettings.instantRestart)
-            {
-                LoseButtonClick();
-                return;
-            }
+            
             Invoke(nameof(ShowView), appearDelay);
         }
 
-        private void ShowView()
+        private void ShowView(int currentLevel)
         {
-            levelCompleteText.text = "LEVEL " + _storageManager.CurrentLevel + " FAIL";
+            levelCompleteText.text = "LEVEL " + currentLevel + " FAIL";
             view.Show();
         }
-        private void LoseButtonClick()
+
+        protected virtual void LoseButtonClick()
         {
-            _signalBus.Fire(new LevelLoadSameSignal());
         }
     }
 }

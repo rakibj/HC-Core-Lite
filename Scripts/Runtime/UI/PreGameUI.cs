@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Rakib
 {
     public class PreGameUI : MonoBehaviour
     {
-        [Inject] private SignalBus _signalBus;
-        [Inject] private StorageManager _storageManager;
         [SerializeField] private UIView view;
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private LevelStartPromptType levelStartPromptType = LevelStartPromptType.TouchToStart;
@@ -22,21 +18,19 @@ namespace Rakib
             ButtonToStart,
             TouchToStart
         }
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
-            if (levelStartPromptType == LevelStartPromptType.ButtonToStart) startButton.onClick.AddListener(StartGame);
-            _signalBus.Subscribe<LevelStartSignal>(Debug_StartGame);
-            _signalBus.Subscribe<LevelLoadSignal>(LevelLoaded);
+            if (levelStartPromptType == LevelStartPromptType.ButtonToStart) 
+                startButton.onClick.AddListener(StartGame);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
-            if (levelStartPromptType == LevelStartPromptType.ButtonToStart) startButton.onClick.RemoveListener(StartGame);
-            _signalBus.Unsubscribe<LevelStartSignal>(Debug_StartGame);
-            _signalBus.Unsubscribe<LevelLoadSignal>(LevelLoaded);
+            if (levelStartPromptType == LevelStartPromptType.ButtonToStart) 
+                startButton.onClick.RemoveListener(StartGame);
         }
 
-        private void LevelLoaded()
+        protected void LevelLoaded()
         {
             if (levelStartPromptType != LevelStartPromptType.TouchToStart) return;
             StartCoroutine(CheckForInputRoutine());
@@ -52,12 +46,8 @@ namespace Rakib
             StartGame();
         }
 
-        private void Start()
-        {
-            SetPreGameUI();
-        }
 
-        private void Debug_StartGame()
+        protected void Debug_StartGame()
         {
             if (!_levelStarted)
             {
@@ -66,22 +56,18 @@ namespace Rakib
             }
         }
 
-        private void SetPreGameUI()
+        private protected void SetPreGameUI(int currentLevel)
         {
             if (levelStartPromptType != LevelStartPromptType.ButtonToStart) startButton.gameObject.SetActive(false);
             if (levelText == null) Debug.Log("levelText is null");
-            levelText.text = "LEVEL " + 
-                             _storageManager.CurrentLevel;
+            levelText.text = "LEVEL " + currentLevel;
         }
-        private void StartGame()
+        protected virtual void StartGame()
         {
             if (_levelStarted) return;
-            _signalBus.Fire(new LevelStartSignal());
             view.Hide();
         }
         
         
-
-
     }
 }

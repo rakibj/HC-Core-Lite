@@ -11,7 +11,6 @@ namespace Rakib
 {
     public class RestartButton : MonoBehaviour
     {
-        [Inject] private GameSettings _gameSettings;
         private Button _restartButton;
 
         private void Awake()

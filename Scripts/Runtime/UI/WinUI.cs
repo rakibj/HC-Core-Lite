@@ -1,21 +1,17 @@
-﻿
-using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Rakib
 {
     public class WinUI : MonoBehaviour
     {
-        [Inject] private SignalBus _signalBus;
-        [Inject] private StorageManager _storageManager;
         [SerializeField] private float appearDelay = 0.5f;
         [SerializeField] private UIView view;
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private Button winButton;
         private IWinUI[] _winUIs;
+        private int _currentLevel;
         private int _scoreWithoutMultiplier;
         private int _scoreMultiplier;
 
@@ -30,21 +26,19 @@ namespace Rakib
             if (winButton == null) winButton = GetComponentInChildren<Button>();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             winButton.onClick.AddListener(WinButtonClick);
-            _signalBus.Subscribe<LevelCompleteSignal>(OnLevelComplete);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             winButton.onClick.RemoveListener(WinButtonClick);
-            _signalBus.Unsubscribe<LevelCompleteSignal>(OnLevelComplete);
         }
 
-        private void OnLevelComplete(LevelCompleteSignal signal)
+        protected void OnLevelComplete(int currentLevel)
         {
-            
+            _currentLevel = currentLevel;
             ShowWinView();
         }
 
@@ -55,7 +49,7 @@ namespace Rakib
         
         private void ShowView()
         {
-            levelText.text = "LEVEL " + (_storageManager.CurrentLevel) + " COMPLETE";
+            levelText.text = "LEVEL " + (_currentLevel) + " COMPLETE";
 
             foreach (var winUI in _winUIs)
                 winUI?.Prepare();
@@ -67,9 +61,8 @@ namespace Rakib
             }
         }
         
-        public void WinButtonClick()
+        public virtual void WinButtonClick()
         {
-            _signalBus.Fire(new LevelLoadNextSignal());
         }
 
     }
