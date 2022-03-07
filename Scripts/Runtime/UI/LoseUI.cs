@@ -10,6 +10,7 @@ namespace Rakib
         [SerializeField] private UIView view;
         [SerializeField] private TMP_Text levelCompleteText;
         [SerializeField] private Button loadNextButton;
+        private int _currentLevel;
 
         private void OnValidate()
         {
@@ -27,15 +28,15 @@ namespace Rakib
             loadNextButton.onClick.RemoveListener(LoseButtonClick);
         }
 
-        public virtual void ShowViewAfter()
+        public virtual void ShowViewDelayed(int currentLevel)
         {
-            
+            _currentLevel = currentLevel;
             Invoke(nameof(ShowView), appearDelay);
         }
 
-        private void ShowView(int currentLevel)
+        private void ShowView()
         {
-            levelCompleteText.text = "LEVEL " + currentLevel + " FAIL";
+            levelCompleteText.text = "LEVEL " + _currentLevel + " FAIL";
             view.Show();
         }
 

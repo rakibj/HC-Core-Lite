@@ -11,23 +11,23 @@ namespace Rakib
         protected override void OnEnable()
         {
             base.OnEnable();
-            _signalBus.Subscribe<LevelFailSignal>(ShowViewAfter);
+            _signalBus.Subscribe<LevelFailSignal>(ShowViewDelayed);
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            _signalBus.Unsubscribe<LevelFailSignal>(ShowViewAfter);
+            _signalBus.Unsubscribe<LevelFailSignal>(ShowViewDelayed);
         }
 
-        public override void ShowViewAfter()
+        private void ShowViewDelayed()
         {
             if (_generalSettings.levelSettings.instantRestart)
             {
                 LoseButtonClick();
                 return;
             }
-            base.ShowViewAfter();
+            base.ShowViewDelayed(_storageManager.CurrentLevel);
         }
 
         protected override void LoseButtonClick()
