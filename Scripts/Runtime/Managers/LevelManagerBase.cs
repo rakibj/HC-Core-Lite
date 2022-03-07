@@ -9,22 +9,27 @@ namespace Rakib
 {
     public class LevelManagerBase : MonoBehaviour
     {
-        [Inject] protected SignalBus SignalBus;
-        [Inject] protected StorageManager _storageManager;
         [SerializeField] private GameState _gameState;
+        protected SignalBus SignalBus;
+        protected StorageManager StorageManager;
         protected int RunningLevel;
-        private const string GameDebugMethods = "GameDebugMethods";
+
+        [Inject]
+        private void Construct(SignalBus signalBus, StorageManager storageManager)
+        {
+            SignalBus = signalBus;
+            StorageManager = storageManager;
+        }
 
         protected virtual void Start()
         {
             Time.timeScale = 1f;
-            RunningLevel = _storageManager.CurrentLevel;
+            RunningLevel = StorageManager.CurrentLevel;
             SignalBus.Fire(new LevelLoadSignal());
         }
 
         protected virtual void OnEnable()
         {
-            //SignalBus.Subscribe<LevelLoadNextSignal>(LevelLoad);
             SignalBus.Subscribe<LevelStartSignal>(LevelStart);
             SignalBus.Subscribe<LevelCompleteSignal>(LevelComplete);
             SignalBus.Subscribe<LevelFailSignal>(LevelFail);
@@ -34,7 +39,6 @@ namespace Rakib
 
         protected virtual void OnDisable()
         {
-            //SignalBus.Unsubscribe<LevelLoadNextSignal>(LevelLoad);
             SignalBus.Unsubscribe<LevelStartSignal>(LevelStart);
             SignalBus.Unsubscribe<LevelCompleteSignal>(LevelComplete);
             SignalBus.Unsubscribe<LevelFailSignal>(LevelFail);
@@ -123,7 +127,7 @@ namespace Rakib
 
         public void Sim_IncreaseScore(int increment = 5)
         {
-            _storageManager.CurrentScore += increment;
+            StorageManager.CurrentScore += increment;
         }
         public void UpdateProgress(float increment = 0.5f)
         {
@@ -132,11 +136,11 @@ namespace Rakib
 
         public void SetEntities(int entitiesCount = 10)
         {
-            _storageManager.TotalEntities = entitiesCount;
+            StorageManager.TotalEntities = entitiesCount;
         }
         public void AddEntity()
         {
-            _storageManager.CurrentEntity++;
+            StorageManager.CurrentEntity++;
         }
 
     }

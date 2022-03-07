@@ -7,27 +7,13 @@ namespace Rakib
     {
         private SignalBus _signalBus;
         private StorageManager _storageManager;
-#if SDKS_INSTALLED
-        private RateGame m_rateGame;
-#endif
-        private GameSettings _gameSettings;
-        public GameSettings GameSettings => _gameSettings;
         private int _runningLevel;
-        private bool _analyticsInitialized = false;
-
-        public bool AnalyticsInitialized
-        {
-            get => _analyticsInitialized;
-            set => _analyticsInitialized = value;
-        }
 
         [Inject]
-        private void Construct(SignalBus signalBus, StorageManager storageManager,
-            GameSettings gameSettings)
+        private void Construct(SignalBus signalBus, StorageManager storageManager)
         {
             _signalBus = signalBus;
             _storageManager = storageManager;
-            _gameSettings = gameSettings;
         }
 
         private void Awake()
@@ -69,29 +55,19 @@ namespace Rakib
         
         private void LevelStarted(LevelStartSignal signal)
         {
-            Debug.Log("GameManager: Level Started");
             _runningLevel = _storageManager.CurrentLevel;
+            Debug.Log("GameManager: Level Started: " + _runningLevel);
         }
 
         private void LevelComplete(LevelCompleteSignal signal)
         {
-            Debug.Log("GameManager: Level Complete");
+            Debug.Log("GameManager: Level Complete: " +  + _runningLevel);
             _storageManager.Currency += _storageManager.CurrentScore;
-#if SDKS_INSTALLED
-            RateGame.Instance.IncreaseCustomEvents();
-            RateGame.Instance.ShowRatePopup();
-#endif
         }
         private void LevelFail(LevelFailSignal signal)
         {
-            Debug.Log("GameManager: Level Fail");
+            Debug.Log("GameManager: Level Fail: " + _runningLevel);
         }
 
-        public void Sim_LevelLoadNext()
-        {
-            _signalBus.Fire(new LevelLoadNextSignal());
-            Debug.Log("GameManager: Level Load Next");
-        }
-        
     }
 }

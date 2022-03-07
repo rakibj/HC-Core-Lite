@@ -8,7 +8,7 @@ namespace Rakib
 {
     public class StorageManager
     {
-        [Inject] private SignalBus _signalBus;
+        private SignalBus _signalBus;
         private const string LEVEL_KEY = "LEVELKEY";
         private const string HIGHSCORE_KEY = "HIGHSCOREKEY";
         private const string CURRENCY_KEY = "CURRENCYKEY";
@@ -69,6 +69,11 @@ namespace Rakib
             set => PlayerPrefs.SetInt(HIGHSCORE_KEY, value);
         }
 
+        [Inject]
+        public void Construct(SignalBus signalBus)
+        {
+            _signalBus = signalBus;
+        }
         
         private int LoadOrCreateKeyInt(string key, int defaultValue = 1)
         {

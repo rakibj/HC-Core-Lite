@@ -7,8 +7,8 @@ namespace Rakib
     public class UIView : MonoBehaviour
     {
         [SerializeField] private bool hideOnStart;
-        [Inject] private UIUtils _utils;
         [SerializeField] private CanvasGroup canvasGroup;
+        [Inject] private UIUtils _utils;
 
         private void OnValidate()
         {

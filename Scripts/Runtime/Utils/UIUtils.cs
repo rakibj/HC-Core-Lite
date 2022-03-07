@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Rakib
 {
-    public class UIUtils : MonoBehaviour
+    public class UIUtils: MonoBehaviour
     {
         public IEnumerator IncrementScore(int from, int to, float duration, Action<int> onUpdate = null, Action onComplete = null)
         {
@@ -48,9 +48,8 @@ namespace Rakib
             
         }
 
-        public IEnumerator FadeOut(CanvasGroup canvasGroup)
+        public IEnumerator FadeOut(CanvasGroup canvasGroup, float duration = 0.5f)
         {
-            var duration = 0.5f;
             canvasGroup.alpha = 1f;
             var factor = (1 / duration) * Time.deltaTime;
 
@@ -71,9 +70,8 @@ namespace Rakib
         }
 
 
-        public IEnumerator FadeIn(CanvasGroup canvasGroup)
+        public IEnumerator FadeIn(CanvasGroup canvasGroup, float duration = 0.5f)
         {
-            var duration = 0.5f;
             canvasGroup.alpha = 0f;
             var factor = (1 / duration) * Time.deltaTime;
 

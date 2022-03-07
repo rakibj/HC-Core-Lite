@@ -6,48 +6,43 @@ namespace Rakib
 {
     public class LevelLoader : MonoBehaviour
     {
-        private GameSettings _gameSettings;
         private GeneralSettings _generalSettings;
-        private SignalBus m_signalBus;
-        private StorageManager m_storageManager;
-        private int m_currentLevel;
+        private SignalBus _signalBus;
+        private StorageManager _storageManager;
+        private int _currentLevel;
         
         [Inject]
-        private void Construct(GameSettings gameSettings, SignalBus signalBus, StorageManager storageManager, GeneralSettings generalSettings)
+        private void Construct(SignalBus signalBus, StorageManager storageManager, GeneralSettings generalSettings)
         {
-            _gameSettings = gameSettings;
-            m_signalBus = signalBus;
-            m_storageManager = storageManager;
+            _signalBus = signalBus;
+            _storageManager = storageManager;
             _generalSettings = generalSettings;
         }
         private void OnEnable()
         {
-            m_signalBus.Subscribe<LevelLoadNextSignal>(LevelComplete);
+            _signalBus.Subscribe<LevelLoadNextSignal>(LevelComplete);
         }
 
         private void OnDisable()
         {
-            m_signalBus.Unsubscribe<LevelLoadNextSignal>(LevelComplete);
+            _signalBus.Unsubscribe<LevelLoadNextSignal>(LevelComplete);
         }
 
         private void Awake()
         {
-            m_currentLevel = m_storageManager.CurrentLevel;
-            //if (!_gameSettings.loadLevelsAutomatically)
-                return;
-            //LoadNextLevel(m_currentLevel);
+            _currentLevel = _storageManager.CurrentLevel;
         }
 
 
         private void LevelComplete(LevelLoadNextSignal signal)
         {
-            m_storageManager.CurrentLevel++;
-            LoadNextLevel(m_storageManager.CurrentLevel);
+            _storageManager.CurrentLevel++;
+            LoadNextLevel(_storageManager.CurrentLevel);
         }
 
         public int GetSceneIndexToLoad()
         {
-            return GetRefinedLevelToLoad(m_currentLevel);
+            return GetRefinedLevelToLoad(_currentLevel);
         }
 
         private void LoadNextLevel(int levelToLoad)
