@@ -4305,7 +4305,7 @@ GameObject:
   - component: {fileID: 8151400649373689966}
   - component: {fileID: 8151400649373689964}
   - component: {fileID: 6382943622891653806}
-  - component: {fileID: 5144500842400228898}
+  - component: {fileID: 6040497366174446440}
   m_Layer: 0
   m_Name: View - Currency
   m_TagString: Untagged
@@ -4405,7 +4405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hideOnStart: 1
   canvasGroup: {fileID: 8151400649373689966}
---- !u!114 &5144500842400228898
+--- !u!114 &6040497366174446440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4414,7 +4414,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8151400649373689960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cc3e5253ce1993448fb179954bc218c, type: 3}
+  m_Script: {fileID: 11500000, guid: f1de82da1e95465b882c18b9b0de5ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currencyText: {fileID: 6253027491562319434}

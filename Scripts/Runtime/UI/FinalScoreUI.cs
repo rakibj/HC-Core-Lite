@@ -1,15 +1,11 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
-using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Rakib
 {
     public class FinalScoreUI : MonoBehaviour, IWinUI
     {
-        [Inject] private UIUtils _utils;
-        [Inject] private StorageManager _storageManager;
         [SerializeField] private TMP_Text entityText;
         [SerializeField] private TMP_Text scoreText;
         
@@ -17,7 +13,8 @@ namespace Rakib
         private int _finalEntityScore;
         private int _finalCurrentScore;
         private int _entityScore;
-        public int EntityScore
+
+        private int EntityScore
         {
             get => _entityScore;
             set
@@ -27,7 +24,7 @@ namespace Rakib
             }
         }
 
-        public int CurrentScore
+        private int CurrentScore
         {
             get => _currentScore;
             set
@@ -39,25 +36,23 @@ namespace Rakib
 
         private int _currentScore;
 
-        public void Prepare()
+        protected void SetFinalEntity(int finalEntity) => _finalEntityScore = finalEntity;
+        protected void SetFinalScore(int finalScore) => _finalCurrentScore = finalScore;
+        public virtual void Prepare()
         {
             EntityScore = 0;
             CurrentScore = 0;
-            _finalEntityScore = _storageManager.CurrentEntity;
-            _finalCurrentScore = _storageManager.CurrentScore;
-            //transform.localScale = Vector3.zero;
         }
         
         public void Show(Action onComplete = null)
         {
-            StartCoroutine(_utils.IncrementScore(EntityScore, _finalEntityScore, 0.5f, i => EntityScore = i));   
-            StartCoroutine(_utils.IncrementScore(CurrentScore, _finalCurrentScore, 0.25f, i => CurrentScore = i,
-                    () =>
-                    {
-                        onComplete?.Invoke();
-                    }));  
+            StartCoroutine(UIUtils.IncrementScore(EntityScore, _finalEntityScore, 0.5f, i => EntityScore = i));   
+            StartCoroutine(UIUtils.IncrementScore(CurrentScore, _finalCurrentScore, 0.25f, i => CurrentScore = i,
+                () =>
+                {
+                    onComplete?.Invoke();
+                }));  
         }
 
-        
     }
 }

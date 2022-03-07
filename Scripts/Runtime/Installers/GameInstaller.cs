@@ -20,9 +20,9 @@ namespace Rakib
             
             Container.BindInstance(gameSettings);
             Container.BindInstance(generalSettings);
-            Container.Bind<LevelLoader>().FromComponentInHierarchy().AsSingle();
             Container.BindInstance(storageManager).AsSingle();
             Container.QueueForInject(storageManager);
+            Container.Bind<LevelLoader>().FromComponentInHierarchy().AsSingle();
             Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
             
             //Signals

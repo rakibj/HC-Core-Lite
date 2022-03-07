@@ -9,7 +9,6 @@ namespace Rakib
     {
         [Inject] private StorageManager _storageManager;
         [Inject] private SignalBus _signalBus;
-        [Inject] private UIUtils _utils;
         [SerializeField] private TMP_Text currentLevel;
         [SerializeField] private TMP_Text nextLevel;
         [SerializeField] private Image progressor;
@@ -82,7 +81,7 @@ namespace Rakib
 
         private void ScoreUpdate(ScoreUpdateSignal scoreUpdateSignal)
         {
-            StartCoroutine(_utils.IncrementScore(Score, _storageManager.CurrentScore, 0.25f,
+            StartCoroutine(UIUtils.IncrementScore(Score, _storageManager.CurrentScore, 0.25f,
                 i => { Score = i; }));
         }
 

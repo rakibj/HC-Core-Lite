@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Rakib
 {
-    public class UIUtils: MonoBehaviour
+    public static class UIUtils
     {
-        public IEnumerator IncrementScore(int from, int to, float duration, Action<int> onUpdate = null, Action onComplete = null)
+        public static IEnumerator IncrementScore(int from, int to, float duration, Action<int> onUpdate = null, Action onComplete = null)
         {
             int start = from;
             int score;
@@ -23,7 +23,7 @@ namespace Rakib
             onComplete?.Invoke();
         }
         
-        public string MakeKmb(int num )
+        public static string MakeKmb(int num )
         {
             double numStr;
             if( num < 1000 )
@@ -48,7 +48,7 @@ namespace Rakib
             
         }
 
-        public IEnumerator FadeOut(CanvasGroup canvasGroup, float duration = 0.5f)
+        public static IEnumerator FadeOut(CanvasGroup canvasGroup, float duration = 0.5f)
         {
             canvasGroup.alpha = 1f;
             var factor = (1 / duration) * Time.deltaTime;
@@ -62,7 +62,7 @@ namespace Rakib
             HideCanvasGroup(canvasGroup);
         }
 
-        public void HideCanvasGroup(CanvasGroup canvasGroup)
+        public static void HideCanvasGroup(CanvasGroup canvasGroup)
         {
             canvasGroup.alpha = 0f;
             canvasGroup.interactable = false;
@@ -70,7 +70,7 @@ namespace Rakib
         }
 
 
-        public IEnumerator FadeIn(CanvasGroup canvasGroup, float duration = 0.5f)
+        public static IEnumerator FadeIn(CanvasGroup canvasGroup, float duration = 0.5f)
         {
             canvasGroup.alpha = 0f;
             var factor = (1 / duration) * Time.deltaTime;
@@ -84,7 +84,7 @@ namespace Rakib
             ShowCanvasGroup(canvasGroup);
         }
 
-        public void ShowCanvasGroup(CanvasGroup canvasGroup)
+        public static void ShowCanvasGroup(CanvasGroup canvasGroup)
         {
             canvasGroup.alpha = 1f;
             canvasGroup.interactable = true;

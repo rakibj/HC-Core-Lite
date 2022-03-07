@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GeneralSettings
   m_EditorClassIdentifier: 
   playerSettings:
-    gameName: Bartender Run
-    bundleIdentifier: com.lightneer.bartenderrun
+    gameName: Game Name
+    bundleIdentifier: com.lightneer.gamename
     buildVersion: 1.0.0
   levelSettings:
     instantRestart: 0
