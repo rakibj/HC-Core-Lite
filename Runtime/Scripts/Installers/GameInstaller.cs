@@ -21,6 +21,7 @@ namespace Rakib
             Container.BindInstance(gameSettings);
             Container.BindInstance(generalSettings);
             Container.BindInstance(storageManager).AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerPrefsSaver>().AsSingle();
             Container.QueueForInject(storageManager);
             Container.Bind<LevelLoader>().FromComponentInHierarchy().AsSingle();
             Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
