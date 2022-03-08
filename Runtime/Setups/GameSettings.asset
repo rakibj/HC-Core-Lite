@@ -14,15 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moduleSettings:
     enableAnalytics: 1
-  visualSettings:
-    loadUI: 1
-    showLoadingUI: 0
-    showWinUIAfter: 1
-    showLoseUIAfter: 0
-    showCurrencyUiInGame: 1
-    showPopup: 1
-    showCurrencyPopup: 1
-    currencyPopupEase: 12
-    currencyMoveTime: 1
-    showMessage: 1
-    showGestures: 0

@@ -5,6 +5,7 @@ namespace Rakib
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private bool showLogs = true;
         private SignalBus _signalBus;
         private StorageManager _storageManager;
         private int _runningLevel;
@@ -43,12 +44,12 @@ namespace Rakib
 
         private void LoadNext()
         {
-            Debug.Log("GameManager: Level Load Next");
+            Log("GameManager: Level Load Next");
         }
 
         private void LevelLoaded(LevelLoadSignal signal)
         {
-            Debug.Log("GameManager: Level Loaded");
+            Log("GameManager: Level Loaded");
             _storageManager.CurrentScore = 0;
             _signalBus.Fire(new CurrencyUpdateSignal());
         }
@@ -56,17 +57,22 @@ namespace Rakib
         private void LevelStarted(LevelStartSignal signal)
         {
             _runningLevel = _storageManager.CurrentLevel;
-            Debug.Log("GameManager: Level Started: " + _runningLevel);
+            Log("GameManager: Level Started: " + _runningLevel);
         }
 
         private void LevelComplete(LevelCompleteSignal signal)
         {
-            Debug.Log("GameManager: Level Complete: " +  + _runningLevel);
+            Log("GameManager: Level Complete: " +  + _runningLevel);
             _storageManager.Currency += _storageManager.CurrentScore;
         }
         private void LevelFail(LevelFailSignal signal)
         {
-            Debug.Log("GameManager: Level Fail: " + _runningLevel);
+            Log("GameManager: Level Fail: " + _runningLevel);
+        }
+
+        private void Log(string content)
+        {
+            if(showLogs) Debug.Log(content);
         }
 
     }

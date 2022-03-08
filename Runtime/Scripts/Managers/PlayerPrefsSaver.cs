@@ -2,12 +2,6 @@
 
 namespace Rakib
 {
-    public interface ISaver
-    {
-        void SetInt(string key, int value);
-        int LoadOrCreateKeyInt(string key, int defaultValue);
-    }
-
     public class PlayerPrefsSaver : ISaver
     {
         public void SetInt(string key, int value)

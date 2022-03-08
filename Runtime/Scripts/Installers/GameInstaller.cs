@@ -8,7 +8,6 @@ namespace Rakib
     [CreateAssetMenu(fileName = "GameInstaller", menuName = "Installers/GameInstaller")]
     public class GameInstaller : ScriptableObjectInstaller<GameInstaller>
     {
-        public GameSettings gameSettings;
         public GeneralSettings generalSettings;
 
         
@@ -18,7 +17,6 @@ namespace Rakib
             
             SignalBusInstaller.Install(Container);
             
-            Container.BindInstance(gameSettings);
             Container.BindInstance(generalSettings);
             Container.BindInstance(storageManager).AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerPrefsSaver>().AsSingle();

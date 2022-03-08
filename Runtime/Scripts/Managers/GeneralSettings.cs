@@ -8,7 +8,7 @@ namespace Rakib
     [CreateAssetMenu(menuName = "Rakib/General Settings")]
     public class GeneralSettings : ScriptableObject
     {
-        public CustomPlayerSettings playerSettings;
+        //public CustomPlayerSettings playerSettings;
         public LevelSettings levelSettings;
     }
 
