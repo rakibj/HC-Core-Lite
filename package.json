@@ -9,5 +9,17 @@
     "name" : "Rakib Jahan",
     "email" : "rakibj56@gmail.com",
     "url" : "https://www.linkedin.com/in/rakibjahan/"
+  },
+  "hideInEditor": "false",
+  "samples": [
+    {
+      "displayName": "UI Workflow",
+      "description": "Contains the UI workflow that fires and subscribes to the game signals",
+      "path": "Samples/UIWorkflow"
+    }
+  ],
+  "dependencies": {
+    "com.svermeulen.extenject": "9.1.0",
+    "com.unity.textmeshpro": "3.0.6"
   }
 }
