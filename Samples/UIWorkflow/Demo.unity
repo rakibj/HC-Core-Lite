@@ -2283,5 +2283,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: MasterCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8151400649861241607, guid: 51f5444064839d14f9b940bc70a8e419, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 155.59668
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151400649861241607, guid: 51f5444064839d14f9b940bc70a8e419, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -110.490234
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f5444064839d14f9b940bc70a8e419, type: 3}

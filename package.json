@@ -11,15 +11,16 @@
     "url" : "https://www.linkedin.com/in/rakibjahan/"
   },
   "hideInEditor": "false",
+  "changelogUrl": "https://docs.google.com/document/d/1tOwTegkrR-UjrF-eM-9aVtk7xxk4mDLz8Knck1R5WkY/edit#heading=h.x1w5w778id10",
   "samples": [
     {
       "displayName": "UI Workflow",
       "description": "Contains the UI workflow that fires and subscribes to the game signals",
-      "path": "Samples/UIWorkflow"
+      "path": "Samples~/UIWorkflow"
     }
   ],
   "dependencies": {
-    "com.svermeulen.extenject": "9.1.0",
+    "com.svermeulen.extenject": "9.1.0-1.metaFileFix",
     "com.unity.textmeshpro": "3.0.6"
   }
 }
